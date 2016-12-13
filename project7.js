@@ -48,18 +48,25 @@ document.addEventListener("mousemove", function(e) {
    if (pen){
      var pt = transformPoint(e, screen)
 
-     if(color == "red" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "red")
+     if(color == "pink" && shape == "circle" && size == "10"){
+      drawCircle(pt.x, pt.y, 10, "#E8B9C4")
      }
-      else if(color == "blue" && shape == "circle" && size == "10"){
-       drawCircle(pt.x, pt.y, 10, "blue")
+     else if(color == "orange" && shape == "circle" && size == "10"){
+      drawCircle(pt.x, pt.y, 10, "#FDAB3D")
+     }
+     else if(color == "yellow" && shape == "circle" && size == "10"){
+      drawCircle(pt.x, pt.y, 10, "#F5E89A")
      }
      else if(color == "green" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "green")
-    }
-    else if(color == "yellow" && shape == "circle" && size == "10"){
-     drawCircle(pt.x, pt.y, 10, "yellow")
-   }
+      drawCircle(pt.x, pt.y, 10, "#AAD7C1")
+     }
+      else if(color == "blue" && shape == "circle" && size == "10"){
+       drawCircle(pt.x, pt.y, 10, "#BACAE2")
+     }
+     else if(color == "purple" && shape == "circle" && size == "10"){
+      drawCircle(pt.x, pt.y, 10, "#D0BBD9")
+     }
+
     }
 
  })
