@@ -4,6 +4,8 @@ body {
 #screen {
   border-style: solid;
   border-width: 5px;
+  position: absolute;
+  right: 5px;
 }
 
 #optionarea {

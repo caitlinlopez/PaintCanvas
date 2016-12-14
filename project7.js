@@ -3,6 +3,24 @@ var namespace = "http://www.w3.org/2000/svg"
 
 var pen = false;
 
+var convert = {
+  "pink":"#E8B9C4",
+  "orange":"#FDAB3D",
+  "yellow":"#F5E89A",
+  "green":"#AAD7C1",
+  "blue":"#BACAE2",
+  "purple":"#D0BBD9",
+  "black":"black",
+  "eraser":"#EFEDEC"
+}
+
+var sConvert = {
+  "5":"5",
+  "10":"10",
+  "15":"15",
+  "20":"20"
+}
+
 // utility function
 function transformPoint(event) {
   var pt = screen.createSVGPoint()
@@ -42,31 +60,20 @@ document.addEventListener("mouseup", function(e) {
 
 document.addEventListener("mousemove", function(e) {
  var color = document.getElementById("colorSelect").value
+ var convertColor = convert[color]
  var shape = document.getElementById("shapeSelect").value
  var size = document.getElementById("sizeSelect").value
+ var convertSize = sConvert[size]
 
    if (pen){
      var pt = transformPoint(e, screen)
 
-     if(color == "pink" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "#E8B9C4")
+     if(shape == "circle"){
+      drawCircle(pt.x, pt.y, convertSize, convertColor)
      }
-     else if(color == "orange" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "#FDAB3D")
+     else if(shape == "square"){
+      drawSquare(pt.x, pt.y, convertSize, convertColor)
      }
-     else if(color == "yellow" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "#F5E89A")
-     }
-     else if(color == "green" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "#AAD7C1")
-     }
-      else if(color == "blue" && shape == "circle" && size == "10"){
-       drawCircle(pt.x, pt.y, 10, "#BACAE2")
-     }
-     else if(color == "purple" && shape == "circle" && size == "10"){
-      drawCircle(pt.x, pt.y, 10, "#D0BBD9")
-     }
-
     }
 
  })
