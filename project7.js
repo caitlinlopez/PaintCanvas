@@ -21,6 +21,18 @@ var sConvert = {
   "20":"20"
 }
 
+var rainbow = {
+  "0":"#E8B9C4",
+  "1":"#FDAB3D",
+  "2":"#F5E89A",
+  "3":"#AAD7C1",
+  "4":"#BACAE2",
+  "5":"#D0BBD9"
+}
+
+var rainbowcolor;
+var addedNum = 0;
+
 // utility function
 function transformPoint(event) {
   var pt = screen.createSVGPoint()
@@ -68,12 +80,43 @@ document.addEventListener("mousemove", function(e) {
    if (pen){
      var pt = transformPoint(e, screen)
 
-     if(shape == "circle"){
+     if(shape == "circle" && color == "rainbow"){
+      drawCircle(pt.x, pt.y, convertSize, rainbowcolor)
+     }
+     else if(shape == "square" && color == "rainbow"){
+      drawSquare(pt.x, pt.y, convertSize, rainbowcolor)
+     }
+     else if(shape == "circle"){
       drawCircle(pt.x, pt.y, convertSize, convertColor)
      }
      else if(shape == "square"){
       drawSquare(pt.x, pt.y, convertSize, convertColor)
      }
+     if(shape == "circle" && color == "rainobw"){
+      drawSquare(pt.x, pt.y, convertSize, rainbow)
+     }
+     else if(shape == "square"){
+      drawSquare(pt.x, pt.y, convertSize, convertColor)
+     }
+     addedNum += 1;
+     if(addedNum > 5){
+        addedNum = 0;
+      }
+      rainbowcolor = rainbow[addedNum];
     }
 
  })
+
+ while (screen.lastChild) {
+      screen.removeChild(screen.lastChild);
+   }
+
+  document.getElementById("undo").addEventListener("click", function(){
+      screen.removeChild(screen.lastChild);
+  })
+
+  document.getElementById("clear").addEventListener("click", function(){
+    while (screen.lastChild) {
+      screen.removeChild(screen.lastChild);
+    }
+  })
