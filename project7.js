@@ -18,16 +18,24 @@ var sConvert = {
   "5":"5",
   "10":"10",
   "15":"15",
-  "20":"20"
+  "20":"20",
+  "25":"25"
 }
 
 var rainbow = {
   "0":"#E8B9C4",
-  "1":"#FDAB3D",
-  "2":"#F5E89A",
-  "3":"#AAD7C1",
-  "4":"#BACAE2",
-  "5":"#D0BBD9"
+  "1":"#F2B280",
+  "2":"#FDAB3D",
+  "3":"#F9C96B",
+  "4":"#F5E89A",
+  "5":"#CFDFAD",
+  "6":"#AAD7C1",
+  "7":"#B2D0D1",
+  "8":"#BACAE2",
+  "9":"#C5C2DD",
+  "10":"#D0BBD9",
+  "11":"#DCBACE"
+
 }
 
 var rainbowcolor;
@@ -92,14 +100,11 @@ document.addEventListener("mousemove", function(e) {
      else if(shape == "square"){
       drawSquare(pt.x, pt.y, convertSize, convertColor)
      }
-     if(shape == "circle" && color == "rainobw"){
-      drawSquare(pt.x, pt.y, convertSize, rainbow)
-     }
      else if(shape == "square"){
       drawSquare(pt.x, pt.y, convertSize, convertColor)
      }
      addedNum += 1;
-     if(addedNum > 5){
+     if(addedNum > 11){
         addedNum = 0;
       }
       rainbowcolor = rainbow[addedNum];
